@@ -22,6 +22,7 @@ export default function App() {
   const [storyData, setStoryData] = useState(null);
   const [storyboard, setStoryboard] = useState(null);
   const [error, setError] = useState("");
+  const [imageLoadedMap, setImageLoadedMap] = useState({});
 
   async function handleGenerate() {
     if (!prompt.trim()) return;
@@ -29,6 +30,7 @@ export default function App() {
       setError("");
       setStoryData(null);
       setStoryboard(null);
+      setImageLoadedMap({});
 
       setStage(STAGES.WRITING);
       const story = await runScreenwriter(prompt, genre);
@@ -141,19 +143,32 @@ export default function App() {
                   </div>
 
                   <div className="shots-grid">
-                    {scene.shots && scene.shots.map((shot) => (
+                    {scene.shots && scene.shots.map((shot) => {
+                      const shotKey = `${act.actNumber}-${scene.sceneNumber}-${shot.imageIndex ?? shot.shotNumber}`;
+                      const isLoaded = !!imageLoadedMap[shotKey];
+                      return (
                       <div key={shot.shotNumber} className="shot-card">
-                        <div className="shot-image-wrapper">
+                        <div className={`shot-image-wrapper ${isLoaded ? "is-loaded" : "is-loading"}`}>
+                          <div className="shot-shutter-overlay">
+                            <div className="shutter-slat shutter-slat--top" />
+                            <div className="shutter-slat shutter-slat--bottom" />
+                            <div className="shot-loading-dot" />
+                          </div>
                           <img
                             src={shot.imageUrl}
                             alt={shot.description}
-                            className="shot-image"
+                            className={`shot-image ${isLoaded ? "is-visible" : ""}`}
                             loading="lazy"
+                            onLoad={() => {
+                              setImageLoadedMap((prev) => ({ ...prev, [shotKey]: true }));
+                            }}
                             onError={(e) => {
                               if (!e.target.dataset.retried) {
                                 e.target.dataset.retried = "true";
                                 const fallback = shot.fallbackImageUrl || `https://placehold.co/768x432/13131a/6c63ff?text=${encodeURIComponent(shot.shotType)}`;
                                 e.target.src = fallback;
+                              } else {
+                                setImageLoadedMap((prev) => ({ ...prev, [shotKey]: true }));
                               }
                             }}
                           />
@@ -161,7 +176,7 @@ export default function App() {
                         </div>
                         <p className="shot-description">{shot.description}</p>
                       </div>
-                    ))}
+                    )})}
                   </div>
                 </div>
               ))}
