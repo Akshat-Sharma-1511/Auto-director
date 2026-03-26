@@ -110,8 +110,8 @@ Open the URL printed in the terminal (typically `http://localhost:5173/`).
 ## Project Demo Videos 🎥
 I recorded the project walkthrough in two parts:
 
-- **Demo Part 1:** [Watch Part 1](./videos/demo-part-1.mp4)
-- **Demo Part 2:** [Watch Part 2](./videos/demo-part-2.mp4)
+- **Demo Part 1:** [Watch Part 1](https://drive.google.com/file/d/1rlTWbWrIJdoBUz0e9ihRuuxJRLUissSX/view?usp=sharing)
+- **Demo Part 2:** [Watch Part 2](https://drive.google.com/file/d/1g24Uqmg7oTZwmAtQ4A6PDtf9VTh5q33A/view?usp=sharing)
 
 > If your video files are large, host them on YouTube/Drive and replace the links above.
 
