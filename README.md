@@ -16,15 +16,19 @@ Most tools stop at writing—or they generate visuals without reliable structure
 
 ### The Solution
 **Auto-Director** runs a deterministic, multi-agent pipeline to generate a complete storyboard in one flow:
-1. **Screenwriter agent** generates a strict **3-act narrative** (Act 1/2/3).
-2. **Cinematographer agent** produces exactly **3 scenes per act** and **3 shots per scene** (**27 shots total**).
-3. **Visual Artist agent** generates cinematic shot images using **FLUX.1-schnell** via **Hugging Face Router** (with a reliability-first fallback).
+1. **User-controlled Story Type selector (original product idea)** sets the narrative direction before generation (e.g., Sci-Fi, Noir, Horror, Romance, Action, Fantasy, Thriller).
+2. **Screenwriter agent** generates a strict **3-act narrative** (Act 1/2/3) aligned with the selected story type.
+3. **Cinematographer agent** produces exactly **3 scenes per act** and **3 shots per scene** (**27 shots total**).
+4. **Visual Artist agent** generates cinematic shot images using **FLUX.1-schnell** via **Hugging Face Router** (with a reliability-first fallback).
 
 Result: a storyboard that is **structured, camera-oriented, and visually aligned**—ready for review and iteration.
 
 ---
 
 ## Key Features (Killer Features) 🚀
+- **Story Type Control (Builder Innovation)** 🧭  
+  A pre-generation selector lets users steer the entire pipeline by creative genre/tone, improving relevance and reducing prompt iteration loops.
+
 - **3-Act Narrative Generator** ✍️  
   Groq-powered LLM output constrained to a strict JSON schema for `act1`, `act2`, and `act3`.
 
@@ -70,6 +74,7 @@ This transforms the pipeline from a fragile demo into a **production-minded work
 ---
 
 ## Technical Excellence
+- **Product-layer control over AI output**: the Story Type selector is an intentional control plane that conditions the complete agent pipeline (writing + shot design + visual direction).
 - **Reliability-first inference orchestration**: image generation includes timeouts and model-loading handling (503 + estimated time retry).
 - **Defensive structured parsing**: “almost JSON” responses no longer crash the storyboard pipeline.
 - **Cinematic UX polish**: the shutter reveal effect prevents the “all images pop in at once” problem and creates a premium visual pacing.
@@ -99,6 +104,16 @@ npm run dev
 ```
 
 Open the URL printed in the terminal (typically `http://localhost:5173/`).
+
+---
+
+## Project Demo Videos 🎥
+I recorded the project walkthrough in two parts:
+
+- **Demo Part 1:** [Watch Part 1](./videos/demo-part-1.mp4)
+- **Demo Part 2:** [Watch Part 2](./videos/demo-part-2.mp4)
+
+> If your video files are large, host them on YouTube/Drive and replace the links above.
 
 ---
 
