@@ -1,11 +1,6 @@
 # 🎬 Auto-Director
 
-**Turn one idea into a cinematic 3-act storyboard—automatically.**
-
-**Badges (placeholders)**  
-![Build](https://img.shields.io/badge/build-passing-brightgreen)  
-![License](https://img.shields.io/badge/license-MIT-lightgrey)  
-![Stars](https://img.shields.io/badge/stars-0-blue)  
+**Turn one idea into a cinematic 3-act storyboard—automatically.**  
 
 ---
 
@@ -44,9 +39,6 @@ Result: a storyboard that is **structured, camera-oriented, and visually aligned
   - request timeouts (AbortController)
   - retry/wait behavior when models are still loading (503 + estimated time)
   - per-shot graceful fallback so the UI stays complete.
-
-- **Smooth Shutter-Style Loading UX** ⏳  
-  Each shot flashcard reveals with a polished shutter animation as its image finishes loading.
 
 ---
 
@@ -87,7 +79,8 @@ This transforms the pipeline from a fragile demo into a **production-minded work
 ## Installation & Setup ✅
 ### 1) Install dependencies
 ```bash
-cd "C:\Users\Akshat\Desktop\auto-director"
+git clone https://github.com/<YOUR_USER>/<YOUR_REPO>.git
+cd <YOUR_REPO>
 npm install
 ```
 
@@ -109,22 +102,8 @@ Open the URL printed in the terminal (typically `http://localhost:5173/`).
 
 ---
 
-## Roadmap (If We Win 🏆)
-If we had prize money, next we’d ship:
-- **Export** storyboard as PDF + shot grids + captions
-- **Style packs** (Noir / Cyberpunk / Horror / Romance) that tune prompt strategy + palettes
-- **Storyboard timelines** (shot duration + camera movement continuity)
-- **Multi-pass refinement** (generate → critique → re-render for tighter consistency)
-- **Back-end hardening** (move image generation server-side to protect tokens)
-
----
-
 ## The Team 👥
-Contributors (replace with real names):
-- **You** — Product & Engineering
-- **Contributor 1** — LLM agent orchestration
-- **Contributor 2** — Frontend + cinematic UX
-- **Contributor 3** — Prompting + reliability engineering
+**Solo builder:** **Akshat Sharma** — Product, engineering, and design.
 
 ---
 
